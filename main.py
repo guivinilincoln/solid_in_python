@@ -4,6 +4,10 @@ from repo.reports_generator import ReportsGenerator
 from reports.html_generator import HTMLGenerator
 from reports.markdown_generator import MarkdownGenerator
 
+from models.member import Member
+from models.onwer import Onwer
+
+
 if __name__ == "__main__":
     username = 'guilhermelincoln'
     response = GithubClient.get_repos_by_user(username)
@@ -17,5 +21,12 @@ if __name__ == "__main__":
         print(markdown_report)
         print(html_report)
     else:
-        print(response['body'])    
+        print(response['body'])
+        
+    member = Member('Teste', 'teste@gmail.com')     
+    onwer = Onwer('Onwer', 'onwer@gmail.com')       
+        
+    print(member.members())
+    print(onwer.members())
+          
         
